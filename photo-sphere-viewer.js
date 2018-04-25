@@ -187,7 +187,7 @@ var PhotoSphereViewer = function(args) {
 
 	this.load = function() {
 		container.innerHTML = '';
-
+		
 		// Loading HTML: HTMLElement
 		if (!!loading_html && loading_html.nodeType === 1)
 			container.appendChild(loading_html);
@@ -237,7 +237,7 @@ var PhotoSphereViewer = function(args) {
 		// XMP data?
 		if (readxmp && !panorama.match(/^data:image\/[a-z]+;base64/))
 			loadXMP();
-
+			
 		else
 			createBuffer();
 	};
@@ -290,7 +290,7 @@ var PhotoSphereViewer = function(args) {
 
 	var loadXMP = function() {
 		var xhr = null;
-
+		
 		if (window.XMLHttpRequest)
 			xhr = new XMLHttpRequest();
 
@@ -307,12 +307,11 @@ var PhotoSphereViewer = function(args) {
 			container.textContent = 'XHR is not supported, update your browser!';
 			return;
 		}
-
+		
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
 				// Metadata
 				var data = getXMPData(xhr.responseText);
-
 				if (!data.length) {
 					createBuffer();
 					return;

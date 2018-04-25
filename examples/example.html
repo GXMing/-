@@ -6,7 +6,7 @@
 		<title>Photo Sphere Viewer</title>
 		<meta name="viewport" content="initial-scale=1.0" />
 		<script src="../three.min.js"></script>
-		<script src="../photo-sphere-viewer.min.js"></script>
+		<script src="../photo-sphere-viewer.js"></script>
 		<style>
 			html, body {
 				margin: 0;
@@ -28,12 +28,22 @@
 		<script>
 			var div = document.getElementById('container');
 			var PSV = new PhotoSphereViewer({
-					panorama: 'http://tassedecafe.org/wp-content/uploads/2013/01/parc-saint-pierre-amiens.jpg',
+					panorama: './b.jpg',
 					container: div,
 					time_anim: 3000,
 					navbar: true,
 					navbar_style: {
 						backgroundColor: 'rgba(58, 67, 77, 0.7)'
+					},
+					max_fov : 100,
+					min_fov : 0,
+					pano_size : {
+						cropped_height:3136,
+						cropped_width:11200,
+						cropped_x:0,
+						cropped_y:347,
+						full_height:4000,
+						full_width:11200
 					},
 				});
 		</script>
